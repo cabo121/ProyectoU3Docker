@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<div class="container">
+	<br>
+	<center><h1>Herramientas Neumaticas</h1><hr></center>
+	<div class="row">
+	<img src="{% static 'files/bannerNeu.jpg' %}" height="300px"
+	    	width="930px">
+	</div><hr>
+
+	<form class="form-control">
+		
+		<div class="row">
+			
+				{% for neumaticas in docs_list %}
+				<div class=col-md-4>
+                    <br>
+                    <div class="card">
+                    	<div class="card-body">
+
+					        <strong><p>{{ neumaticas.nombre }}</p></strong><hr>
+
+					        <strong>Marca: </strong><p>{{ neumaticas.marca }}</p>
+
+					        <strong>Modelo: </strong><p>{{ neumaticas.modelo }}</p>
+
+					        <strong>Precio: </strong><p>{{ neumaticas.precio }}</p>
+
+					        <strong>Fecha: </strong><p>{{ neumaticas.fecha }}</p>
+					        
+		                    <br>   
+
+		                    <p><a  class= "btn btn-primary btn-sm" href="{% url 'modificarNeu' neumaticas.id  %}">Modificar</a></p>
+
+					        <p><a  class= "btn btn-danger btn-sm" href="{% url 'eliminarNeu' neumaticas.id  %}">Eliminar</a></p>
+
+                    	</div>
+                    </div>
+				</div>
+	    		{% endfor %}
+
+		</div><br><br>
+			    		<p><a  class= "btn btn-primary btn-sm" href="{% url 'agregarNeu' %}">Agregar</a></p>
+	</form>
+
+</div>
+
+{% endblock content %}

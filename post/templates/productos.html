@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<div class="container">
+	<br>
+	<center><h1>Herramientas Manuales</h1><hr></center>
+	<div class="row">
+	<img src="{% static 'files/bannerMan.jpg' %}" height="300px"
+	    	width="930px">
+	</div><hr>
+
+	<form class="form-control">
+		
+		<div class="row">
+			
+				{% for manuales in docs_list %}
+				<div class=col-md-4>
+                    <br>
+                    <div class="card">
+                    	<div class="card-body">
+
+					        <strong><p>{{ manuales.nombre }}</p></strong><hr>
+
+					        <strong>Marca: </strong><p>{{ manuales.marca }}</p>
+
+					        <strong>Modelo: </strong><p>{{ manuales.modelo }}</p>
+
+					        <strong>Precio: </strong><p>{{ manuales.precio }}</p>
+
+					        <strong>Fecha: </strong><p>{{ manuales.fecha }}</p>
+					        
+		                    <br>   
+
+		                    <p><a  class= "btn btn-primary btn-sm" 
+		                    	href="{% url 'modificarMan' manuales.id  %}">Modificar</a></p>
+
+					        <p><a  class= "btn btn-danger btn-sm" 
+					        	href="{% url 'eliminarMan' manuales.id  %}">Eliminar</a></p>
+
+                    	</div>
+                    </div>
+				</div>
+	    		{% endfor %}
+
+		</div><br><br>
+			    		<p><a  class= "btn btn-primary btn-sm" href="{% url 'agregarMan' %}">Agregar</a></p>
+	</form>
+
+</div>
+
+{% endblock content %}

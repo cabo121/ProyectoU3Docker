@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<div class="jumbotron p-4">
+    <h1 class="titulo" style="text-align: center;  font-size: 50px;"><strong>Ferreteria</strong></h1>
+    <p class="lead" style="text-align: center;">Bienvenidos a nuestra ferreteria</p>
+    <hr>
+    <br>
+
+    <div class="row">
+    	<img src="{% static 'files/banner.png' %}" height="400px"
+    	width="1100px">
+    </div>
+    <hr>
+    <br>
+
+</div>
+
+{% endblock content %}
